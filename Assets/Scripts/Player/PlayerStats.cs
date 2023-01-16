@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.Build;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -5,10 +7,24 @@ using Random = UnityEngine.Random;
 public class PlayerStats : ScriptableObject
 {
     [SerializeField] private PlayerStatsValues values;
+    [SerializeField] private bool useStartStats;
     public PlayerStatsValues Values => values;
     
     [SerializeField] private PlayerStatsChange statChangeData;
-    
+
+
+    private void OnEnable()
+    {
+        if(useStartStats)
+            resetStats();
+    }
+
+    private void resetStats()
+    {
+        values.AttackRadius = values.StartAttackRadius;
+        values.MovementSpeed = values.StartMovementSpeed;
+        values.DamagePerSecond = values.StartDamagePerSecond;
+    }
     public void upgrade()
     {
         if (Random.value < statChangeData.attackRadiusUpgradeChance)

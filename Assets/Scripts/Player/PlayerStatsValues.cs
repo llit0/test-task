@@ -5,10 +5,20 @@ using UnityEngine;
 [Serializable]
 public class PlayerStatsValues : ILifetimeScope
 {
+    [Header("Current Values")]
     [SerializeField] private float movementSpeed;
     [SerializeField] private float damagePerSecond;
     [SerializeField] private int attackRadius;
     private int enemiesKilled;
+    
+    [Header("Start Values")]
+    [SerializeField] private float startMovementSpeed;
+    [SerializeField] private float startDamagePerSecond;
+    [SerializeField] private int startAttackRadius;
+
+    public float StartMovementSpeed => startMovementSpeed;
+    public float StartDamagePerSecond => startDamagePerSecond;
+    public int StartAttackRadius => startAttackRadius;
     
     [Atom] public float MovementSpeed
     {
