@@ -8,5 +8,5 @@ using Unity.IL2CPP.CompilerServices;
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 public struct Player : IComponent
 {
-    public GameObject playerObject;
+    public PlayerStats stats;
 }

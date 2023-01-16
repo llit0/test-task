@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    playerObject: {fileID: 6435775144228813214}
+    stats: {fileID: 11400000, guid: 48b00f9a338290d479ac3df91da4c72c, type: 2}
 --- !u!114 &167287689292050838
 MonoBehaviour:
   m_ObjectHideFlags: 0

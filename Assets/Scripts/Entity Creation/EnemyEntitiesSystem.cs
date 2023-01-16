@@ -52,8 +52,7 @@ public sealed class EnemyEntitiesSystem : UpdateSystem
 
     private void incrementPlayerKillCount()
     {
-        ExistingObjectsData data = World.Filter.With<ExistingObjectsData>().First().GetComponent<ExistingObjectsData>();
-        data.playerObject.GetComponent<PlayerStats>().addKill();
+        World.Filter.With<Player>().First().GetComponent<Player>().stats.addKill();
     }
 
     private void createEnemyEntity(Enemy.Type type, EnemyCreationConstants constants)

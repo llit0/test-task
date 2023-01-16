@@ -26,8 +26,9 @@ public sealed class MovementSystem : FixedUpdateSystem
     {
         filter = World.Filter.With<Player>();
         ref Player player = ref filter.First().GetComponent<Player>();
+        float movementSpeed = player.stats.Values.MovementSpeed;
+        
         ref Position position = ref filter.First().GetComponent<Position>();
-        float movementSpeed = player.playerObject.GetComponent<PlayerStats>().Values.MovementSpeed;
         position.coordinates += filter.First().GetComponent<Movement>().movementVector * movementSpeed * deltaTime;
         fitInMapBoundaries(ref position);
     }

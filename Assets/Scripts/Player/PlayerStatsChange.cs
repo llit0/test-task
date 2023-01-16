@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class PlayerStatsChange : MonoBehaviour
+[CreateAssetMenu(fileName = "PlayerStatsChangeScriptableObject", menuName = "ScriptableObjects/PlayerStatsChange")]
+public class PlayerStatsChange : ScriptableObject
 {
     [Header("Value Changes")]
     public float movementSpeedChange = 0.5f;

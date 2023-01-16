@@ -11,22 +11,11 @@ public class PlayerStatsUIUpdater : MonoBehaviour, ILifetimeScope
     [SerializeField] private TextMeshProUGUI dps;
     [SerializeField] private TextMeshProUGUI movementSpeed;
 
-    private PlayerStats playerStats;
+    [SerializeField] private PlayerStats playerStats;
     
     private void Awake()
     {
-        StartCoroutine(init());
-    }
-
-    private IEnumerator init()
-    {
-        //bad solution!
-        yield return new WaitForEndOfFrame(); //needed to wait for the player gameobject to load
-        
-        Player data = World.Default!.Filter.With<Player>().First().GetComponent<Player>();
-        playerStats = data.playerObject.GetComponent<PlayerStats>();
         Atom.Reaction(Lifetime, updateUI);
-        
     }
 
     private void updateUI()

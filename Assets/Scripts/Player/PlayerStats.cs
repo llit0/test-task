@@ -1,15 +1,16 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlayerStats : MonoBehaviour
+[CreateAssetMenu(fileName = "PlayerStatsScriptableObject", menuName = "ScriptableObjects/PlayerStats")]
+public class PlayerStats : ScriptableObject
 {
     [SerializeField] private PlayerStatsValues values;
     public PlayerStatsValues Values => values;
-
+    
+    [SerializeField] private PlayerStatsChange statChangeData;
+    
     public void upgrade()
     {
-        PlayerStatsChange statChangeData = GetComponent<PlayerStatsChange>();
-        
         if (Random.value < statChangeData.attackRadiusUpgradeChance)
             values.AttackRadius += statChangeData.attackRadiusChange;
         else if (Random.value < statChangeData.damagePerSecondUpgradeChance)

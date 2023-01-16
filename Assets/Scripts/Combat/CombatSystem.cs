@@ -22,8 +22,9 @@ public sealed class CombatSystem : FixedUpdateSystem
 
     private void playerAttack(float deltaTime)
     {
-        ExistingObjectsData data = World.Filter.With<ExistingObjectsData>().First().GetComponent<ExistingObjectsData>();
-        PlayerStats playerStats = data.playerObject.GetComponent<PlayerStats>();
+        Filter playerFilter = World.Filter.With<Player>();
+        ref Player player = ref playerFilter.First().GetComponent<Player>();
+        PlayerStats playerStats = player.stats;
 
         Position playerPos = World.Filter.With<Player>().First().GetComponent<Position>();
         List<Entity> enemies = World.Filter.With<Enemy>().ToList();
